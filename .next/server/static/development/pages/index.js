@@ -93,10 +93,10 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/index.styles.ts":
-/*!*******************************!*\
-  !*** ./pages/index.styles.ts ***!
-  \*******************************/
+/***/ "./components/styles/index.styles.ts":
+/*!*******************************************!*\
+  !*** ./components/styles/index.styles.ts ***!
+  \*******************************************/
 /*! exports provided: Title */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -108,8 +108,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const Title = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.h1.withConfig({
   displayName: "indexstyles__Title",
-  componentId: "zsmqnx-0"
-})(["color:red;"]);
+  componentId: "lz5vzj-0"
+})(["color:crimson;"]);
 
 /***/ }),
 
@@ -125,8 +125,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Index; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.styles */ "./pages/index.styles.ts");
-var _jsxFileName = "/Users/zoeyzheng/Documents/SARS-CoV-2/pages/index.tsx";
+/* harmony import */ var _components_styles_index_styles__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/styles/index.styles */ "./components/styles/index.styles.ts");
+var _jsxFileName = "C:\\Users\\johnson.ta\\Desktop\\Development\\React Projects\\SARS-CoV-2\\pages\\index.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -138,14 +138,92 @@ function Index() {
       lineNumber: 5,
       columnNumber: 5
     }
-  }, __jsx(_index_styles__WEBPACK_IMPORTED_MODULE_1__["Title"], {
+  }, __jsx(_components_styles_index_styles__WEBPACK_IMPORTED_MODULE_1__["Title"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6,
       columnNumber: 7
     }
-  }, "Hello Covid"));
+  }, "Hello Covid"), __jsx("p", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7,
+      columnNumber: 7
+    }
+  }, "Last Updated: xxx"), __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10,
+      columnNumber: 9
+    }
+  }, "Choose country:"), __jsx("select", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, __jsx("option", {
+    value: "CA",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 11
+    }
+  }, "Canada"))), __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 7
+    }
+  }, __jsx("h4", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 17,
+      columnNumber: 9
+    }
+  }, "Confirmed cases: xxx"), __jsx("h4", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 9
+    }
+  }, "Recovered: xxx"), __jsx("h4", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 9
+    }
+  }, "Deaths: xxx")), __jsx("div", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22,
+      columnNumber: 7
+    }
+  }, __jsx("h2", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23,
+      columnNumber: 9
+    }
+  }, "Daily Summary:")));
 }
 
 /***/ }),
@@ -157,7 +235,7 @@ function Index() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/zoeyzheng/Documents/SARS-CoV-2/pages/index.tsx */"./pages/index.tsx");
+module.exports = __webpack_require__(/*! C:\Users\johnson.ta\Desktop\Development\React Projects\SARS-CoV-2\pages\index.tsx */"./pages/index.tsx");
 
 
 /***/ }),
