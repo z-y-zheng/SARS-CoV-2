@@ -1,4 +1,5 @@
 import { Title } from "../components/styles/index.styles";
+import QueryCountry from "../components/QueryCountry";
 
 export default function Index() {
   return (
@@ -6,18 +7,7 @@ export default function Index() {
       <Title>Hello Covid</Title>
       <p>Last Updated: xxx</p>
 
-      <div>
-        <h2>Choose country:</h2>
-        <select>
-          <option value="CA">Canada</option>
-        </select>
-      </div>
-
-      <div>
-        <h4>Confirmed cases: xxx</h4>
-        <h4>Recovered: xxx</h4>
-        <h4>Deaths: xxx</h4>
-      </div>
+      <QueryCountry />
 
       <div>
         <h2>Daily Summary:</h2>
