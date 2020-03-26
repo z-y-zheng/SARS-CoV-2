@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -336,6 +336,29 @@ function cleanAmpPath(pathname) {
     return pathname;
 }
 exports.cleanAmpPath = cleanAmpPath;
+function collectEnv(page, env, pageEnv) {
+    const missingEnvKeys = new Set();
+    const collected = pageEnv
+        ? pageEnv.reduce((prev, key) => {
+            if (typeof env[key] !== 'undefined') {
+                prev[key] = env[key];
+            }
+            else {
+                missingEnvKeys.add(key);
+            }
+            return prev;
+        }, {})
+        : {};
+    if (missingEnvKeys.size > 0) {
+        console.warn(`Missing env value${missingEnvKeys.size === 1 ? '' : 's'}: ${[
+            ...missingEnvKeys,
+        ].join(', ')} for ${page}.\n` +
+            `Make sure to supply this value in either your .env file or in your environment.\n` +
+            `See here for more info: https://err.sh/next.js/missing-env-value`);
+    }
+    return collected;
+}
+exports.collectEnv = collectEnv;
 
 
 /***/ }),
@@ -1056,25 +1079,30 @@ module.exports = __webpack_require__(/*! ./dist/pages/_document */ "./node_modul
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyDocument; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/document */ "./node_modules/next/document.js");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/zoeyzheng/Documents/SARS-CoV-2/pages/_document.js";
+var _jsxFileName = "C:\\Users\\johnson.ta\\Desktop\\Development\\React Projects\\SARS-CoV-2\\pages\\_document.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
-  static getInitialProps({
-    renderPage
-  }) {
-    // Returns an object like: { html, head, errorHtml, chunks, styles }
-    return renderPage();
+  static async getInitialProps(ctx) {
+    const initialProps = await next_document__WEBPACK_IMPORTED_MODULE_1___default.a.getInitialProps(ctx);
+    return _objectSpread({}, initialProps);
   }
 
   render() {
-    return __jsx("html", {
+    return __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Html"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
@@ -1088,32 +1116,25 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 12,
         columnNumber: 9
       }
-    }, __jsx("title", {
+    }), __jsx("body", {
       __self: this,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 13,
-        columnNumber: 11
-      }
-    }, "My page")), __jsx("body", {
-      __self: this,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 15,
         columnNumber: 9
       }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16,
+        lineNumber: 14,
         columnNumber: 11
       }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
       __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17,
+        lineNumber: 15,
         columnNumber: 11
       }
     })));
@@ -1121,9 +1142,11 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
 }
 
+/* harmony default export */ __webpack_exports__["default"] = (MyDocument);
+
 /***/ }),
 
-/***/ 0:
+/***/ 1:
 /*!*********************************************!*\
   !*** multi private-next-pages/_document.js ***!
   \*********************************************/
