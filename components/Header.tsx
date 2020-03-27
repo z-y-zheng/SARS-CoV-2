@@ -1,22 +1,22 @@
 import Link from "next/link";
 import styled from "styled-components";
-import NProgress from "nprogress";
 import Router from "next/router";
+// import NProgress from "nprogress";
 
-Router.onRouteChangeStart = () => {
-  console.log("route change started");
-  NProgress.start();
-};
+// Router.events.on("routeChangeStart", () => {
+//   console.log("route change started");
+//   NProgress.start();
+// });
 
-Router.onRouteChangeComplete = () => {
-  console.log("route change complete");
-  NProgress.done();
-};
+// Router.events.on("routeChangeComplete", () => {
+//   console.log("route change complete");
+//   NProgress.done();
+// });
 
-Router.onRouteChangeError = () => {
-  console.log("route change error");
-  NProgress.done();
-};
+// Router.events.on("routeChangeError", () => {
+//   console.log("route change error");
+//   NProgress.done();
+// });
 
 const StyledHeader = styled.header`
   width: 100%;
